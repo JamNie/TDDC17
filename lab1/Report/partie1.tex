@@ -1,0 +1,54 @@
+%section{Analyse du sujet et structure du projet}
+ %\setcounter{page}{2}
+ \addtocounter{section}{0}
+ \thispagestyle{empty}
+\section{Task1}
+The agent must be able to suck up all dirt in a rectangular world of unknown dimensions without obstacles and shut down on the home position (home position can be sensed through one of the percepts). At the end the agent should also have a fully updated world model (i.e. world variable in MyAgentState class). 
+
+\subsection{Decision-Loop}
+The first assignement does not imply obstacle avoidance, it is possible
+to implement an easy 3-step strategy :
+
+\begin{itemize}
+  \item First, move the VacuumAgent back to its home position, (1,1) on the grid, after it has performed its initial random moves.
+  \item Moving forward horizontaly and once we hit a wall we move one step south and continue in the opposite direction.
+  \item Finally when the VacuumAgent turns 90° to south and bump into the south wall, it goes back to the home position.
+\end{itemize}
+
+\subsection{Possible improvement}
+
+The VacuumAgent have the ability to suck up all dirt in a rectangular world of unknown dimensions without obstacles and shut down on the home position in this way.But the world model can't be fully updated at the end.There is still (?) in the map where some of the wall is.This problem will be solved in task2.
+
+\section{Task2}
+Extend and improve your agent to be able to solve the problem with obstacles (0.1 obstacle density, 15x15 world).
+
+\subsection{Decision-Loop}
+Our agent is searching for all the unknown squares that we have access to, directly or indirectly. The search is performed with a slightly modified version of the Uniform-Cost Search, where the only significant difference is that we do not replace the elements in the frontier with possibly cheaper elements. When an unknown square is found we move over there using the path acquired by the search method.
+
+\subsection{Data stored in Agent}
+Search is containing all the logic related to finding a cheap path to a certain square type.We combine Actions into Moves, and Moves into objects called Paths to simplify the logic. This enables us to think of the problem at a higher level.
+\begin{itemize}
+	\item \textbf{actionSequence}
+When we have found a suitable path we store all of its actions in the actionSequence container which is a queue.
+	\item \textbf{frontier}
+Is a PriorityQueue containing paths, and is sorted on the lowest path cost. The cost consists of the number of actions required to execute the path.
+	\item \textbf{Explored}
+Contains the string representation of the coordinates for explored squares.
+\end{itemize}
+\subsection{Reasons we choose the solusions }
+We could not come up with any simple rules that would solve the problem of avoiding/moving around obstacles. Especially difficult would be differentiating between random obstacles and the wall. Our search based solution will always explore 100\% of accessible map in 100\% of runs.
+
+\begin{figure}[h]
+    \centering
+      \includegraphics[width=0.83\linewidth]{./images/task1.png}
+    \caption{Task1 Screenshot\label{VacuumAgent}}
+\end{figure}
+
+
+\begin{figure}[h]
+    \centering
+      \includegraphics[width=0.83\linewidth]{./images/task2.png}
+    \caption{Task2 Screenshot\label{VacuumAgent}}
+\end{figure}
+\thispagestyle{empty}
+
