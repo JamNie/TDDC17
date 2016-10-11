@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BIF VERSION="0.3"  xmlns="http://www.cs.ubc.ca/labs/lci/fopi/ve/XMLBIFv0_3"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.cs.ubc.ca/labs/lci/fopi/ve/XMLBIFv0_3 http://www.cs.ubc.ca/labs/lci/fopi/ve/XMLBIFv0_3/XMLBIFv0_3.xsd">
+<NETWORK>
+<NAME>Nuclear Power Station</NAME>
+<PROPERTY>short = </PROPERTY>
+<PROPERTY>detailed = </PROPERTY>
+
+<VARIABLE TYPE="nature">
+	<NAME>WaterLeak</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (7629.69384765625, 5167.67333984375)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>WaterLeakWarning</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (7714.779296875, 5291.63330078125)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>IcyWeather</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (7629.69384765625, 5047.4716796875)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>PumpFailure</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (7370.99951171875, 5165.06005859375)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>PumpFailureWarning</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (7295.220703125, 5297.0205078125)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>Meltdown</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (7482.05517578125, 5418.5283203125)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>Battery</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (6962.0, 5115.0)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>Radio</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (6853.0, 5228.0)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>Ignition</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (7016.0, 5229.0)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>Starts</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (7092.0, 5334.0)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>Gas</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (7142.0, 5233.0)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>Moves</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (7093.0, 5419.0)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>Survives</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (7267.0, 5528.0)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>BicycleWorks</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<OBS>F</OBS>
+	<PROPERTY>position = (7271.0, 5388.0)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>isSleeping</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (7813.0, 5493.0)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>Mr H.S checks out potential problem</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (7459.0, 5558.0)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>isConfused</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (7896.0, 5557.0)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>isInWorkingCondition</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (7702.0, 5583.0)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>isDrunk</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (7732.0, 5469.0)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>HearsWarning</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (7618.0, 5502.0)</PROPERTY>
+</VARIABLE>
+
+<DEFINITION>
+	<FOR>WaterLeak</FOR>
+	<GIVEN>IcyWeather</GIVEN>
+	<TABLE>0.2 0.8 0.1 0.9</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>WaterLeakWarning</FOR>
+	<GIVEN>WaterLeak</GIVEN>
+	<TABLE>0.9 0.1 0.05 0.95</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>IcyWeather</FOR>
+	<TABLE>0.05 0.95</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>PumpFailure</FOR>
+	<TABLE>0.1 0.9</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>PumpFailureWarning</FOR>
+	<GIVEN>PumpFailure</GIVEN>
+	<TABLE>0.9 0.1 0.05 0.95</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>Meltdown</FOR>
+	<GIVEN>WaterLeak</GIVEN>
+	<GIVEN>PumpFailure</GIVEN>
+	<GIVEN>Mr H.S checks out potential problem</GIVEN>
+	<TABLE>0.05 0.95 0.1 0.9 0.02 0.98 0.05 0.95 0.05 0.95 0.1 0.9 0.1 0.9 0.01 0.99</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>Battery</FOR>
+	<GIVEN>IcyWeather</GIVEN>
+	<TABLE>0.8 0.2 0.95 0.05</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>Radio</FOR>
+	<GIVEN>Battery</GIVEN>
+	<TABLE>0.95 0.05 0.0 1.0</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>Ignition</FOR>
+	<GIVEN>Battery</GIVEN>
+	<TABLE>0.95 0.05 0.0 1.0</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>Starts</FOR>
+	<GIVEN>Ignition</GIVEN>
+	<GIVEN>Gas</GIVEN>
+	<TABLE>0.95 0.05 0.0 1.0 0.0 1.0 0.0 1.0</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>Gas</FOR>
+	<TABLE>0.95 0.05</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>Moves</FOR>
+	<GIVEN>Starts</GIVEN>
+	<TABLE>0.95 0.05 0.0 1.0</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>Survives</FOR>
+	<GIVEN>Meltdown</GIVEN>
+	<GIVEN>Moves</GIVEN>
+	<GIVEN>BicycleWorks</GIVEN>
+	<TABLE>0.9 0.1 0.8 0.2 0.6 0.4 0.0 1.0 1.0 0.0 1.0 0.0 1.0 0.0 1.0 0.0</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>BicycleWorks</FOR>
+	<TABLE>0.9 0.1</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>isSleeping</FOR>
+	<TABLE>0.1 0.9</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>Mr H.S checks out potential problem</FOR>
+	<GIVEN>isInWorkingCondition</GIVEN>
+	<GIVEN>HearsWarning</GIVEN>
+	<TABLE>0.9 0.1 0.0 1.0 0.0 1.0 0.0 1.0</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>isConfused</FOR>
+	<TABLE>0.3 0.7</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>isInWorkingCondition</FOR>
+	<GIVEN>isSleeping</GIVEN>
+	<GIVEN>isConfused</GIVEN>
+	<GIVEN>isDrunk</GIVEN>
+	<TABLE>0.0 1.0 0.0 1.0 0.0 1.0 0.0 1.0 0.2 0.8 0.25 0.75 0.3 0.7 0.8 0.2</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>isDrunk</FOR>
+	<TABLE>0.2 0.8</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>HearsWarning</FOR>
+	<GIVEN>WaterLeakWarning</GIVEN>
+	<GIVEN>PumpFailureWarning</GIVEN>
+	<TABLE>0.9 0.1 0.8 0.2 0.8 0.2 0.0 1.0</TABLE>
+</DEFINITION>
+</NETWORK>
+</BIF>
